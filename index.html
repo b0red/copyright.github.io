@@ -5,88 +5,72 @@
   <title>Copyright Information</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      background-color: #0d1117;
-      color: #c9d1d9;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #58a6ff;
-    }
-    .tabs {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .tab {
-      background: #161b22;
-      border: 1px solid #30363d;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      margin: 0 0.25rem;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background 0.3s;
-    }
-    .tab:hover {
-      background: #21262d;
-    }
-    .tab img {
-      width: 20px;
-      height: 14px;
-    }
-    .content {
-      display: none;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 1rem;
-      background: #161b22;
-    }
-    .content.active {
-      display: block;
-    }
-    form {
-      margin-top: 1rem;
-    }
-    input, textarea, button {
-      width: 100%;
-      background: #0d1117;
-      color: #c9d1d9;
-      border: 1px solid #30363d;
-      border-radius: 6px;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-    }
-    button {
-      background: #238636;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background: #2ea043;
-    }
-    .qr {
-      text-align: center;
-      margin-top: 2rem;
-    }
-    .qr img {
-      width: 200px;
-      border-radius: 8px;
-    }
-    @media (max-width: 600px) {
-      body {
-        padding: 1rem;
-      }
-      .tab {
-        font-size: 0.9rem;
-      }
-    }
+    /* Background image placeholder */
+body {
+  background-color: #0d1117;
+  background-image: url('your-background-image.jpg'); /* Replace later */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #c9d1d9;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+/* Smooth fade transition for tab content */
+.content {
+  display: none;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.tab {
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* GitHub glow + active tab highlight */
+.tab.active {
+  background: #1f6feb;
+  border-color: #58a6ff;
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
+  color: white;
+}
+
+.tab:hover {
+  background: #21262d;
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+}
+
+.tab img {
+  width: 20px;
+  height: 14px;
+}
+
   </style>
 </head>
 <body>
@@ -94,18 +78,18 @@
   <h1>© Copyright Information</h1>
   <p>This page serves as the official copyright reference for all images linking to this URL.</p>
 
-  <div class="tabs">
-    <div class="tab" onclick="showTab('sv')">
-      <img src="https://flagcdn.com/w20/se.png" alt="Swedish flag"> Svenska
+    <div class="tabs">
+    <div class="tab active" onclick="showTab('sv', this)">
+        <img src="https://flagcdn.com/w20/se.png" alt="Swedish flag"> Svenska
     </div>
-    <div class="tab" onclick="showTab('en')">
-      <img src="https://flagcdn.com/w20/gb.png" alt="UK flag"> English
+    <div class="tab" onclick="showTab('en', this)">
+        <img src="https://flagcdn.com/w20/gb.png" alt="UK flag"> English
     </div>
-  </div>
+    </div>
 
   <div id="sv" class="content active">
     <h2>Upphovsrättsmeddelande</h2>
-    <p>© 2024–2025 Patrick Österlund. Alla rättigheter förbehållna.</p>
+    <p>© 2024–2026 Patrick Österlund. Alla rättigheter förbehållna.</p>
     <p>Alla fotografier, bilder och visuella verk som länkar till denna sida är skyddade av internationell upphovsrättslagstiftning. 
     Inget material får kopieras, reproduceras, modifieras, publiceras, distribueras eller användas i någon form—kommersiellt eller icke‑kommersiellt—utan uttryckligt skriftligt tillstånd från upphovsrättsinnehavaren.</p>
 
@@ -128,7 +112,7 @@
 
   <div id="en" class="content">
     <h2>Copyright Notice</h2>
-    <p>© 2024–2025 Patrick Österlund. All rights reserved.</p>
+    <p>© 2024–2026 Patrick Österlund. All rights reserved.</p>
     <p>All photographs, images, and visual works linked to this page are protected by international copyright law. 
     No content may be copied, reproduced, modified, published, distributed, or used in any form—commercial or non‑commercial—without explicit written permission from the copyright holder.</p>
 
@@ -143,10 +127,19 @@
 
     <h3>Contact / License Request</h3>
     <form action="https://formspree.io/f/mlgkrgpp" method="POST">
-      <label>Your email:<br><input type="email" name="email" required></label><br>
-      <label>Message / Request:<br><textarea name="message" rows="6" required></textarea></label><br>
-      <button type="submit">Send Request</button>
-    </form>
+  <label>
+    Your email:<br>
+    <input type="email" name="email" required>
+  </label><br><br>
+
+  <label>
+    Your message:<br>
+    <textarea name="message" rows="6" required></textarea>
+  </label><br><br>
+
+  <button type="submit">Send</button>
+</form>
+
   </div>
 
   <h3>📧 Email (Obfuscated)</h3>
@@ -154,20 +147,77 @@
 
   <div class="qr">
     <h3>🔳 QR Code</h3>
-    <img src="qr.png" alt="QR code linking to this page">
+    <img src="qr_code_copyright.png" alt="QR code linking to this page">
   </div>
 
   <script>
-    function showTab(lang) {
-      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-      document.getElementById(lang).classList.add('active');
-    }
+<script>
+  // -----------------------------
+  // 1) Dynamic Copyright Year
+  // -----------------------------
+  const currentYear = new Date().getFullYear();
+  const startYear = 2024;
+  const yearString = startYear === currentYear ? `${currentYear}` : `${startYear}–${currentYear}`;
+  document.querySelectorAll('.copyright-year')
+    .forEach(el => el.textContent = yearString);
 
-    // Triple-layer email obfuscation
-    const encoded = ["cGF0cmljay5v", "c3Rlcmx1bmRA", "Z21haWwuY29t"];
-    const decoded = atob(encoded.join(''));
-    const scrambled = decoded.replace('@', ' [at] ');
-    document.getElementById('email').innerText = scrambled;
+  // -----------------------------
+  // 2) Triple‑Layer Email Obfuscation
+  // -----------------------------
+  const emailParts = [
+    "cGF0cmljay5v",
+    "c3Rlcmx1bmRA",
+    "Z21haWwuY29t"
+  ];
+  const decodedEmail = atob(emailParts.join(''));
+  const safeEmail = decodedEmail.replace("@", " [at] ");
+  document.getElementById('email').innerText = safeEmail;
+
+  // -----------------------------
+  // 3) Tab Switching Logic (with active highlight)
+  // -----------------------------
+  function showTab(lang, tabElement) {
+    document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+    document.getElementById(lang).classList.add('active');
+
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tabElement.classList.add('active');
+  }
+  window.showTab = showTab;
+
+  // -----------------------------
+  // 4) Formspree AJAX Submission
+  // -----------------------------
+  function handleForm(formId, successId, errorId) {
+    const form = document.getElementById(formId);
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          document.getElementById(successId).classList.remove("hidden");
+          document.getElementById(errorId).classList.add("hidden");
+          form.reset();
+        } else {
+          document.getElementById(errorId).classList.remove("hidden");
+        }
+      } catch {
+        document.getElementById(errorId).classList.remove("hidden");
+      }
+    });
+  }
+
+  handleForm("form-en", "success-en", "error-en");
+  handleForm("form-sv", "success-sv", "error-sv");
+</script>
+
   </script>
 
 </body>
