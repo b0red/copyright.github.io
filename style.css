@@ -214,6 +214,10 @@ button:hover {
   box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
 }
 
+.qr img:hover {
+  box-shadow: 0 0 18px rgba(88, 166, 255, 0.6);
+  transition: box-shadow 0.3s ease;
+}
 /* Footer */
 .footer-separator {
   border-color: #30363d;
