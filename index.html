@@ -8,14 +8,17 @@
 </head>
 <body>
 
+  <!-- GitHub-style header bar -->
   <div class="github-bar">
     <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
     Copyright Information
   </div>
 
+  <!-- Content plate -->
   <div class="page-container">
     <h1>© Upphovsrätt / Copyright</h1>
 
+    <!-- Rounded tab bar -->
     <div class="tabs">
       <div class="tab active" onclick="showTab('sv', this)">
         <img src="https://flagcdn.com/w20/se.png" alt="Swedish flag"> Svenska
@@ -25,9 +28,11 @@
       </div>
     </div>
 
+    <!-- SWEDISH SECTION -->
     <div id="sv" class="content active">
       <h2>Upphovsrättsmeddelande</h2>
       <p>© <span class="copyright-year"></span> Patrick Österlund. Alla rättigheter förbehållna.</p>
+
       <p>
         Alla fotografier, bilder och visuella verk som länkar till denna sida är skyddade av internationell upphovsrättslagstiftning.
         Inget material får kopieras, reproduceras, modifieras, publiceras, distribueras eller användas i någon form—kommersiellt eller
@@ -43,38 +48,41 @@
         <li>Inga bearbetningar eller derivat får skapas utan uttryckligt godkännande.</li>
       </ul>
 
+      <!-- Contact + QR side-by-side -->
       <div class="contact-section">
-  <div class="contact-form">
-    <h3>Kontakt / Licensförfrågan</h3>
-    <form id="form-sv" action="https://formspree.io/f/mlgkrgpp" method="POST">
-      <input type="text" name="_gotcha" style="display:none">
-      <input type="hidden" name="source" value="copyright-page-sv">
+        <div class="contact-form">
+          <h3>Kontakt / Licensförfrågan</h3>
+          <form id="form-sv" action="https://formspree.io/f/mlgkrgpp" method="POST">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="source" value="copyright-page-sv">
 
-      <label>Din e‑postadress:<br>
-        <input type="email" name="email" required>
-      </label><br><br>
+            <label>Din e‑postadress:<br>
+              <input type="email" name="email" required>
+            </label><br><br>
 
-      <label>Ditt meddelande:<br>
-        <textarea name="message" rows="6" required></textarea>
-      </label><br><br>
+            <label>Ditt meddelande:<br>
+              <textarea name="message" rows="6" required></textarea>
+            </label><br><br>
 
-      <button type="submit">Skicka</button>
+            <button type="submit">Skicka</button>
 
-      <p id="success-sv" class="hidden success">Meddelandet skickades!</p>
-      <p id="error-sv" class="hidden error">Något gick fel. Försök igen.</p>
-    </form>
-  </div>
+            <p id="success-sv" class="hidden success">Meddelandet skickades!</p>
+            <p id="error-sv" class="hidden error">Något gick fel. Försök igen.</p>
+          </form>
+        </div>
 
-  <div class="qr">
-    <h3>🔳 QR Code</h3>
-    <img src="qr.png" alt="QR code linking to this page">
-  </div>
-</div>
+        <div class="qr">
+          <h3>🔳 QR Code</h3>
+          <img src="qr.png" alt="QR code linking to this page">
+        </div>
+      </div>
+    </div>
 
-
+    <!-- ENGLISH SECTION -->
     <div id="en" class="content">
       <h2>Copyright Notice</h2>
       <p>© <span class="copyright-year"></span> Patrick Österlund. All rights reserved.</p>
+
       <p>
         All photographs, images, and visual works linked to this page are protected by international copyright law.
         No content may be copied, reproduced, modified, published, distributed, or used in any form—commercial or
@@ -90,41 +98,43 @@
         <li>No derivative works may be created without explicit consent.</li>
       </ul>
 
-<div class="contact-section">
-  <div class="contact-form">
-    <h3>Contact / License Request</h3>
-    <form id="form-en" action="https://formspree.io/f/mlgkrgpp" method="POST">
-      <input type="text" name="_gotcha" style="display:none">
-      <input type="hidden" name="source" value="copyright-page-en">
+      <!-- Contact + QR side-by-side -->
+      <div class="contact-section">
+        <div class="contact-form">
+          <h3>Contact / License Request</h3>
+          <form id="form-en" action="https://formspree.io/f/mlgkrgpp" method="POST">
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="source" value="copyright-page-en">
 
-      <label>Your email:<br>
-        <input type="email" name="email" required>
-      </label><br><br>
+            <label>Your email:<br>
+              <input type="email" name="email" required>
+            </label><br><br>
 
-      <label>Your message:<br>
-        <textarea name="message" rows="6" required></textarea>
-      </label><br><br>
+            <label>Your message:<br>
+              <textarea name="message" rows="6" required></textarea>
+            </label><br><br>
 
-      <button type="submit">Send</button>
+            <button type="submit">Send</button>
 
-      <p id="success-en" class="hidden success">Message sent successfully!</p>
-      <p id="error-en" class="hidden error">Something went wrong. Please try again.</p>
-    </form>
-  </div>
+            <p id="success-en" class="hidden success">Message sent successfully!</p>
+            <p id="error-en" class="hidden error">Something went wrong. Please try again.</p>
+          </form>
+        </div>
 
-  <div class="qr">
-    <h3>🔳 QR Code</h3>
-    <img src="qr.png" alt="QR code linking to this page">
-  </div>
-</div>
+        <div class="qr">
+          <h3>🔳 QR Code</h3>
+          <img src="qr.png" alt="QR code linking to this page">
+        </div>
+      </div>
 
-    <h3>📧 Email (Obfuscated)</h3>
-    <p id="email"></p>
-
-    <div class="footer-bar">
-    This page serves as the official copyright reference for all images linking to this URL.
+      <h3>📧 Email (Obfuscated)</h3>
+      <p id="email"></p>
     </div>
 
+    <!-- Footer bar -->
+    <div class="footer-bar">
+      This page serves as the official copyright reference for all images linking to this URL.
+    </div>
 
   </div>
 
