@@ -187,15 +187,31 @@ button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* QR */
-.qr {
-  text-align: center;
+/* Contact + QR side-by-side layout */
+.contact-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap; /* keeps it responsive */
   margin-top: 2rem;
+}
+
+.contact-form {
+  flex: 1 1 60%;
+}
+
+.qr {
+  flex: 1 1 35%;
+  text-align: center;
 }
 
 .qr img {
   width: 200px;
+  height: auto;
   border-radius: 8px;
+  border: 1px solid #30363d;
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
 }
 
 /* Footer */
