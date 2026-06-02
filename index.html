@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Copyright Information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #58a6ff;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .tab {
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin: 0 0.25rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s;
+    }
+    .tab:hover {
+      background: #21262d;
+    }
+    .tab img {
+      width: 20px;
+      height: 14px;
+    }
+    .content {
+      display: none;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 1rem;
+      background: #161b22;
+    }
+    .content.active {
+      display: block;
+    }
+    form {
+      margin-top: 1rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      background: #0d1117;
+      color: #c9d1d9;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    button {
+      background: #238636;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #2ea043;
+    }
+    .qr {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .qr img {
+      width: 200px;
+      border-radius: 8px;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      .tab {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>© Copyright Information</h1>
+  <p>This page serves as the official copyright reference for all images linking to this URL.</p>
+
+  <div class="tabs">
+    <div class="tab" onclick="showTab('sv')">
+      <img src="https://flagcdn.com/w20/se.png" alt="Swedish flag"> Svenska
+    </div>
+    <div class="tab" onclick="showTab('en')">
+      <img src="https://flagcdn.com/w20/gb.png" alt="UK flag"> English
+    </div>
+  </div>
+
+  <div id="sv" class="content active">
+    <h2>Upphovsrättsmeddelande</h2>
+    <p>© 2024–2025 Patrick Österlund. Alla rättigheter förbehållna.</p>
+    <p>Alla fotografier, bilder och visuella verk som länkar till denna sida är skyddade av internationell upphovsrättslagstiftning. 
+    Inget material får kopieras, reproduceras, modifieras, publiceras, distribueras eller användas i någon form—kommersiellt eller icke‑kommersiellt—utan uttryckligt skriftligt tillstånd från upphovsrättsinnehavaren.</p>
+
+    <h3>Ytterligare begränsningar</h3>
+    <ul>
+      <li>Ingen användning är tillåten i AI‑träningsdata eller maskininlärningsmodeller.</li>
+      <li>Ingen användning är tillåten för att skapa, sälja eller distribuera NFTs eller blockchain‑baserade tillgångar.</li>
+      <li>Ingen automatiserad nedladdning, scraping eller massinsamling av bilder är tillåten.</li>
+      <li>Ingen återpublicering på sociala medier, webbplatser eller plattformar utan skriftligt tillstånd.</li>
+      <li>Inga bearbetningar eller derivat får skapas utan uttryckligt godkännande.</li>
+    </ul>
+
+    <h3>Kontakt / Licensförfrågan</h3>
+    <form action="https://formspree.io/f/mlgkrgpp" method="POST">
+      <label>E‑postadress:<br><input type="email" name="email" required></label><br>
+      <label>Meddelande:<br><textarea name="message" rows="6" required></textarea></label><br>
+      <button type="submit">Skicka förfrågan</button>
+    </form>
+  </div>
+
+  <div id="en" class="content">
+    <h2>Copyright Notice</h2>
+    <p>© 2024–2025 Patrick Österlund. All rights reserved.</p>
+    <p>All photographs, images, and visual works linked to this page are protected by international copyright law. 
+    No content may be copied, reproduced, modified, published, distributed, or used in any form—commercial or non‑commercial—without explicit written permission from the copyright holder.</p>
+
+    <h3>Additional Restrictions</h3>
+    <ul>
+      <li>No permission is granted for use in AI training datasets or machine learning models.</li>
+      <li>No permission is granted for minting, selling, or distributing NFTs or blockchain‑based assets.</li>
+      <li>No permission is granted for scraping, automated downloading, or bulk collection of images.</li>
+      <li>No permission is granted for reposting on social media, websites, or platforms without written approval.</li>
+      <li>No derivative works may be created without explicit consent.</li>
+    </ul>
+
+    <h3>Contact / License Request</h3>
+    <form action="https://formspree.io/f/mlgkrgpp" method="POST">
+      <label>Your email:<br><input type="email" name="email" required></label><br>
+      <label>Message / Request:<br><textarea name="message" rows="6" required></textarea></label><br>
+      <button type="submit">Send Request</button>
+    </form>
+  </div>
+
+  <h3>📧 Email (Obfuscated)</h3>
+  <p id="email"></p>
+
+  <div class="qr">
+    <h3>🔳 QR Code</h3>
+    <img src="qr.png" alt="QR code linking to this page">
+  </div>
+
+  <script>
+    function showTab(lang) {
+      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+    }
+
+    // Triple-layer email obfuscation
+    const encoded = ["cGF0cmljay5v", "c3Rlcmx1bmRA", "Z21haWwuY29t"];
+    const decoded = atob(encoded.join(''));
+    const scrambled = decoded.replace('@', ' [at] ');
+    document.getElementById('email').innerText = scrambled;
+  </script>
+
+</body>
+</html>
