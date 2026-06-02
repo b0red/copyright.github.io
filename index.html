@@ -5,78 +5,129 @@
   <title>Copyright Information</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Background image placeholder */
-body {
-  background-color: #0d1117;
-  background-image: url('your-background-image.jpg'); /* Replace later */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #c9d1d9;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 2rem;
-  line-height: 1.6;
-}
+  /* Background image placeholder */
+  body {
+    background-color: #0d1117;
+    background-image: url('your-background-image.jpg'); /* Replace later */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #c9d1d9;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
 
-/* Smooth fade transition for tab content */
-.content {
-  display: none;
-  opacity: 0;
-  transform: translateY(5px);
-  transition: opacity 0.35s ease, transform 0.35s ease;
-}
+  /* GitHub-style top bar */
+  .github-bar {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #c9d1d9;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-.content.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
+  .github-bar img {
+    width: 22px;
+    height: 22px;
+  }
 
-/* Tabs */
-.tabs {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  gap: 0.5rem;
-}
+  .page-container {
+    padding: 2rem;
+  }
 
-.tab {
-  background: #161b22;
-  border: 1px solid #30363d;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
+  /* Smooth fade transition for tab content */
+  .content {
+    display: none;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
 
-/* GitHub glow + active tab highlight */
-.tab.active {
-  background: #1f6feb;
-  border-color: #58a6ff;
-  box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
-  color: white;
-}
+  .content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.tab:hover {
-  background: #21262d;
-  box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
-}
+  /* Tabs */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
 
-.tab img {
-  width: 20px;
-  height: 14px;
-}
+  .tab {
+    background: #161b22;
+    border: 1px solid #30363d;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
 
-  </style>
+  /* GitHub glow + active tab highlight */
+  .tab.active {
+    background: #1f6feb;
+    border-color: #58a6ff;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
+    color: white;
+  }
+
+  .tab:hover {
+    background: #21262d;
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+  }
+
+  .tab img {
+    width: 20px;
+    height: 14px;
+  }
+
+  /* Success + error messages */
+  .hidden {
+    display: none;
+  }
+
+  .success, .error {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: bold;
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .success {
+    background: #1f6feb;
+    color: white;
+  }
+
+  .error {
+    background: #da3633;
+    color: white;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
 </head>
 <body>
-
+    <div class="github-bar">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
+    Copyright Information
+    </div>
   <h1>© Copyright Information</h1>
-  <p>This page serves as the official copyright reference for all images linking to this URL.</p>
 
     <div class="tabs">
     <div class="tab active" onclick="showTab('sv', this)">
@@ -149,21 +200,19 @@ body {
     <h3>🔳 QR Code</h3>
     <img src="qr_code_copyright.png" alt="QR code linking to this page">
   </div>
-
-  <script>
 <script>
-  // -----------------------------
-  // 1) Dynamic Copyright Year
-  // -----------------------------
+  /* -----------------------------
+     1) Dynamic Copyright Year
+     ----------------------------- */
   const currentYear = new Date().getFullYear();
   const startYear = 2024;
   const yearString = startYear === currentYear ? `${currentYear}` : `${startYear}–${currentYear}`;
   document.querySelectorAll('.copyright-year')
     .forEach(el => el.textContent = yearString);
 
-  // -----------------------------
-  // 2) Triple‑Layer Email Obfuscation
-  // -----------------------------
+  /* -----------------------------
+     2) Triple‑Layer Email Obfuscation
+     ----------------------------- */
   const emailParts = [
     "cGF0cmljay5v",
     "c3Rlcmx1bmRA",
@@ -173,9 +222,9 @@ body {
   const safeEmail = decodedEmail.replace("@", " [at] ");
   document.getElementById('email').innerText = safeEmail;
 
-  // -----------------------------
-  // 3) Tab Switching Logic (with active highlight)
-  // -----------------------------
+  /* -----------------------------
+     3) Tab Switching Logic
+     ----------------------------- */
   function showTab(lang, tabElement) {
     document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
     document.getElementById(lang).classList.add('active');
@@ -185,9 +234,9 @@ body {
   }
   window.showTab = showTab;
 
-  // -----------------------------
-  // 4) Formspree AJAX Submission
-  // -----------------------------
+  /* -----------------------------
+     4) Formspree AJAX Submission
+     ----------------------------- */
   function handleForm(formId, successId, errorId) {
     const form = document.getElementById(formId);
     form.addEventListener("submit", async (e) => {
@@ -218,7 +267,7 @@ body {
   handleForm("form-sv", "success-sv", "error-sv");
 </script>
 
-  </script>
-
+<hr>
+  <p>This page serves as the official copyright reference for all images linking to this URL.</p>
 </body>
 </html>
