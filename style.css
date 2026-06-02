@@ -29,11 +29,17 @@ body {
   width: 22px;
   height: 22px;
 }
-
+/* Content plate / panel */
 .page-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: rgba(22, 27, 34, 0.85); /* Midnight semi-transparent */
+  border: 1px solid #30363d;
+  border-radius: 12px;
   padding: 2rem;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px); /* subtle glass effect */
 }
-
 /* Tabs */
 .tabs {
   display: flex;
