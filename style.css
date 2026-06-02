@@ -12,18 +12,30 @@ body {
   line-height: 1.6;
 }
 
-/* GitHub-style top bar */
+/* Vignette overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.35) 100%
+  );
+  z-index: 0;
+}
+
+/* Header plate behind GitHub bar */
 .github-bar {
-  background: rgba(13, 17, 23, 0.65);
-  /*background: #161b22;*/
+  background: rgba(22, 27, 34, 0.92);
   border-bottom: 1px solid #30363d;
-  padding: 0.75rem 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #c9d1d9;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .github-bar img {
@@ -31,39 +43,49 @@ body {
   height: 22px;
 }
 /* Content plate / panel */
-.page-container {
+.page-container {  
+  position: relative;
+  z-index: 1;
   max-width: 900px;
   margin: 2rem auto;
-  background: rgba(22, 27, 34, 0.85); /* Midnight semi-transparent */
+  background: rgba(13, 17, 23, 0.65); /* Midnight semi-transparent */
   border: 1px solid #30363d;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 0 25px rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px); /* subtle glass effect */
+  backdrop-filter: blur(12px); /* subtle glass effect */
 }
-/* Tabs */
+/* Rounded tab bar container */
 .tabs {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
-  gap: 0.5rem;
-}
-
-.tab {
-  background: #161b22;
+  margin-bottom: 1.5rem;
+  gap: 0;
+  background: rgba(22, 27, 34, 0.85);
   border: 1px solid #30363d;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+  border-radius: 999px;
+  padding: 0.4rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  backdrop-filter: blur(6px);
 }
 
-.tab img {
-  width: 20px;
-  height: 14px;
+/* Tabs inside rounded bar */
+.tab {
+  border-radius: 999px;
+  margin: 0;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  background: transparent;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+/* Active tab inside rounded bar */
+.tab.active {
+  background: #1f6feb;
+  box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
+  color: white;
 }
 
 /* Active tab + glow */
