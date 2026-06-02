@@ -1,7 +1,7 @@
 /* Background image placeholder */
 body {
   background-color: #0d1117;
-  background-image: url('your-background-image.jpg'); /* replace later */
+  background-image: url('background.jpg'); /* replace later */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
