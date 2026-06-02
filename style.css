@@ -25,7 +25,6 @@ body::before {
   );
   z-index: 0;
 }
-
 /* Header plate behind GitHub bar */
 .github-bar {
   background: rgba(22, 27, 34, 0.92);
@@ -33,9 +32,32 @@ body::before {
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.4);
   backdrop-filter: blur(8px);
-  position: sticky;
+  position: relative;
   top: 0;
-  z-index: 50;
+  z-index: 2;
+}
+/* Darkened overlay behind content plate */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* adjust darkness here */
+  z-index: 0; /* sits behind content plate */
+  pointer-events: none;
+}
+/* GitHub-style footer bar */
+.footer-bar {
+  background: rgba(22, 27, 34, 0.92);
+  border-top: 1px solid #30363d;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8b949e;
+  margin-top: 3rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
 }
 
 .github-bar img {
