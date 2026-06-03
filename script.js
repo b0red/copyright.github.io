@@ -1,58 +1,59 @@
-/* 1) Dynamic copyright year */
-const currentYear = new Date().getFullYear();
-const startYear = 2024;
-const yearString = startYear === currentYear ? `${currentYear}` : `${startYear}–${currentYear}`;
-document.querySelectorAll('.copyright-year')
-  .forEach(el => el.textContent = yearString);
+/* =========================================================
+   5) Theme Toggle + System Auto Mode + Fade Transition
+   ========================================================= */
 
-/* 2) Triple-layer email obfuscation */
-const emailParts = [
-  "cGF0cmljay5v",   // patrick.o
-  "c3Rlcmx1bmRA",   // sterlund@
-  "Z21haWwuY29t"    // gmail.com
-];
-const decodedEmail = atob(emailParts.join(''));
-const safeEmail = decodedEmail.replace("@", " [at] ");
-document.getElementById('email').innerText = safeEmail;
+(function() {
+  const root = document.documentElement;
+  const toggle = document.getElementById("themeToggle");
 
-/* 3) Tab switching logic */
-function showTab(lang, tabElement) {
-  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
-  document.getElementById(lang).classList.add('active');
+  /* Smooth fade transition */
+  const applyFade = () => {
+    root.classList.add("theme-fade");
+    setTimeout(() => root.classList.remove("theme-fade"), 300);
+  };
 
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  tabElement.classList.add('active');
-}
-window.showTab = showTab;
+  /* Detect system preference */
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-/* 4) Formspree AJAX submission */
-function handleForm(formId, successId, errorId) {
-  const form = document.getElementById(formId);
-  if (!form) return;
+  /* Apply theme */
+  function setTheme(mode, save = true) {
+    applyFade();
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
+    if (mode === "dark") {
+      root.setAttribute("data-theme", "dark");
+      toggle.textContent = "☀️";
+    } else {
+      root.removeAttribute("data-theme");
+      toggle.textContent = "🌙";
+    }
 
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
+    if (save) {
+      localStorage.setItem("theme", mode);
+    }
+  }
 
-      if (response.ok) {
-        document.getElementById(successId).classList.remove("hidden");
-        document.getElementById(errorId).classList.add("hidden");
-        form.reset();
-      } else {
-        document.getElementById(errorId).classList.remove("hidden");
-      }
-    } catch {
-      document.getElementById(errorId).classList.remove("hidden");
+  /* Load saved theme or fall back to system */
+  const saved = localStorage.getItem("theme");
+
+  if (saved === "dark") {
+    setTheme("dark", false);
+  } else if (saved === "light") {
+    setTheme("light", false);
+  } else {
+    // No saved preference → follow system
+    setTheme(systemPrefersDark.matches ? "dark" : "light", false);
+  }
+
+  /* React to system changes live */
+  systemPrefersDark.addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      setTheme(e.matches ? "dark" : "light", false);
     }
   });
-}
 
-handleForm("form-en", "success-en", "error-en");
-handleForm("form-sv", "success-sv", "error-sv");
+  /* Manual toggle */
+  toggle.addEventListener("click", () => {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    setTheme(isDark ? "light" : "dark");
+  });
+})();
