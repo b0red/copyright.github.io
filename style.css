@@ -1,4 +1,19 @@
-/* Background image placeholder */
+/* =========================================================
+   COPYRIGHT PAGE — MIDNIGHT THEME
+   Author: Patrick Österlund
+   Project: Copyright Information (GitHub Pages)
+   Description:
+     Styling for the one‑page copyright & licensing portal.
+     Includes Midnight UI theme, GitHub‑style chrome,
+     tabbed content, form styling, and responsive layout.
+   Last Updated: 2026-06-03
+   ========================================================= */
+
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+
+/* Background and typography */
 body {
   background-color: #0d1117;
   background-image: url('background.jpg'); /* replace later */
@@ -25,7 +40,22 @@ body::before {
   );
   z-index: 0;
 }
-/* Header plate behind GitHub bar */
+
+/* Darkened overlay behind content plate */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* adjust darkness here */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* =========================================================
+   HEADER & FOOTER
+   ========================================================= */
+
+/* GitHub-style header bar */
 .github-bar {
   background: rgba(22, 27, 34, 0.92);
   border-bottom: 1px solid #30363d;
@@ -36,15 +66,12 @@ body::before {
   top: 0;
   z-index: 2;
 }
-/* Darkened overlay behind content plate */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* adjust darkness here */
-  z-index: 0; /* sits behind content plate */
-  pointer-events: none;
+
+.github-bar img {
+  width: 22px;
+  height: 22px;
 }
+
 /* GitHub-style footer bar */
 .footer-bar {
   background: rgba(22, 27, 34, 0.92);
@@ -60,12 +87,25 @@ body::after {
   z-index: 2;
 }
 
-.github-bar img {
-  width: 22px;
-  height: 22px;
+/* Footer separator and text */
+.footer-separator {
+  border-color: #30363d;
+  margin-top: 3rem;
 }
+
+.footer-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   MAIN CONTENT AREA
+   ========================================================= */
+
 /* Content plate / panel */
-.page-container {  
+.page-container {
   position: relative;
   z-index: 1;
   max-width: 900px;
@@ -75,8 +115,13 @@ body::after {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 0 25px rgba(0,0,0,0.4);
-  backdrop-filter: blur(12px); /* subtle glass effect */
+  backdrop-filter: blur(12px);
 }
+
+/* =========================================================
+   TAB BAR
+   ========================================================= */
+
 /* Rounded tab bar container */
 .tabs {
   display: flex;
@@ -103,13 +148,6 @@ body::after {
   transition: background 0.3s, box-shadow 0.3s;
 }
 
-/* Active tab inside rounded bar */
-.tab.active {
-  background: #1f6feb;
-  box-shadow: 0 0 12px rgba(88, 166, 255, 0.6);
-  color: white;
-}
-
 /* Active tab + glow */
 .tab.active {
   background: #1f6feb;
@@ -123,7 +161,10 @@ body::after {
   box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
 }
 
-/* Content transitions */
+/* =========================================================
+   CONTENT TRANSITIONS
+   ========================================================= */
+
 .content {
   display: none;
   opacity: 0;
@@ -137,7 +178,10 @@ body::after {
   transform: translateY(0);
 }
 
-/* Forms */
+/* =========================================================
+   FORMS & MESSAGES
+   ========================================================= */
+
 input, textarea, button {
   width: 100%;
   background: #0d1117;
@@ -159,7 +203,7 @@ button:hover {
   background: #2ea043;
 }
 
-/* Messages */
+/* Success & error messages */
 .hidden {
   display: none;
 }
@@ -187,13 +231,16 @@ button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Contact + QR side-by-side layout */
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
 .contact-section {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 2rem;
-  flex-wrap: wrap; /* keeps it responsive */
+  flex-wrap: wrap;
   margin-top: 2rem;
 }
 
@@ -212,26 +259,17 @@ button:hover {
   border-radius: 8px;
   border: 1px solid #30363d;
   box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+  transition: box-shadow 0.3s ease;
 }
 
 .qr img:hover {
   box-shadow: 0 0 18px rgba(88, 166, 255, 0.6);
-  transition: box-shadow 0.3s ease;
-}
-/* Footer */
-.footer-separator {
-  border-color: #30363d;
-  margin-top: 3rem;
 }
 
-.footer-text {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #8b949e;
-  margin-top: 1rem;
-}
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
 
-/* Mobile */
 @media (max-width: 600px) {
   .page-container {
     padding: 1rem;
