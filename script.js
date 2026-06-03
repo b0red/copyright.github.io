@@ -83,6 +83,12 @@ handleForm("form-sv", "success-sv", "error-sv");
   const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
+  const modeLabels = { light: "Theme: Light", auto: "Theme: Automatic", dark: "Theme: Dark" };
+
+  function updateToggleTitle(mode) {
+    toggle.title = modeLabels[mode] || "Theme: Automatic";
+  }
+
   function updateMetaThemeColor() {
     if (!metaThemeColor) return;
     const isDark = root.getAttribute("data-theme") === "dark";
@@ -113,6 +119,7 @@ handleForm("form-sv", "success-sv", "error-sv");
     }
 
     updateMetaThemeColor();
+    updateToggleTitle(mode);
 
     if (save) {
       if (mode === "auto") {
