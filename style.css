@@ -48,6 +48,14 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.icon-sun,
+.icon-moon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 /* =========================================================
    THEME TOGGLE — SLIDER + SUN/MOON MORPH
    ========================================================= */
@@ -86,16 +94,15 @@
 
 [data-theme="dark"] .toggle-thumb {
   left: 24px;
-  background: var(--text);
 }
 
 /* Sun/Moon icons */
 .toggle-thumb svg {
-  position: absolute;
   width: 16px;
   height: 16px;
   fill: var(--bg);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease, fill 0.3s ease;
 }
 
 /* Light mode: show sun */
@@ -307,6 +314,10 @@ body::after {
   display: block;
   opacity: 1;
   transform: translateY(0);
+}
+
+.toggle-thumb svg {
+  transition: opacity 0.3s ease, transform 0.3s ease, fill 0.3s ease;
 }
 
 
