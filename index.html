@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <title>Copyright Information</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"><link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <!-- iOS Splash Screens -->
-<link rel="apple-touch-startup-image" href="splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
-<link rel="apple-touch-startup-image" href="splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px)">
-<link rel="apple-touch-startup-image" href="splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px)">
-<link rel="apple-touch-startup-image" href="splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px)">
-<link rel="apple-touch-startup-image" href="splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px)">
-<link rel="apple-touch-startup-image" href="splash-1668x2224.png" media="(device-width: 834px) and (device-height: 1112px)">
-<link rel="apple-touch-startup-image" href="splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px)">
 
-  <link rel="manifest" href="/site.webmanifest">
+  <!-- iOS Splash Screens -->
+  <link rel="apple-touch-startup-image" href="splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px)">
+  <link rel="apple-touch-startup-image" href="splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px)">
+  <link rel="apple-touch-startup-image" href="splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px)">
+  <link rel="apple-touch-startup-image" href="splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px)">
+  <link rel="apple-touch-startup-image" href="splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px)">
+  <link rel="apple-touch-startup-image" href="splash-1668x2224.png" media="(device-width: 834px) and (device-height: 1112px)">
+  <link rel="apple-touch-startup-image" href="splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px)">
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#0d1117">
@@ -28,14 +30,34 @@
   <!-- GitHub-style header bar -->
   <div class="github-bar">
     <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
-    Information om Upphovsrätt / Copyright Information for Photos taken by Patrick 
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+
+    <span class="header-title">
+      Information om Upphovsrätt / Copyright Information for Photos taken by Patrick
+    </span>
+
+    <!-- 3-state theme toggle: Light / Auto / Dark -->
+    <div id="themeToggle" class="theme-toggle">
+      <div class="toggle-track">
+        <div class="toggle-thumb">
+          <!-- Sun (light) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+          </svg>
+          <!-- Balance / auto -->
+          <svg class="icon-auto" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4a1 1 0 011 1v2a1 1 0 11-2 0V5a1 1 0 011-1zm0 8a4 4 0 100-8 4 4 0 000 8zm0 2c-3.314 0-6 2.239-6 5a1 1 0 001 1h10a1 1 0 001-1c0-2.761-2.686-5-6-5z"></path>
+          </svg>
+          <!-- Moon (dark) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 0111.21 3 7 7 0 1019 14.79 9 9 0 0121 12.79z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Content plate -->
   <div class="page-container">
-    <!-- <h1>© Upphovsrätt / Copyright</h1> -->
-
     <!-- Rounded tab bar -->
     <div class="tabs">
       <div class="tab active" onclick="showTab('sv', this)">
@@ -157,6 +179,5 @@
   </div>
 
   <script src="script.js"></script>
-  
 </body>
 </html>

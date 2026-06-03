@@ -1,12 +1,12 @@
 /* =========================================================
-   COPYRIGHT PAGE — MIDNIGHT THEME + LIGHT MODE TOGGLE
+   COPYRIGHT PAGE — MIDNIGHT THEME + LIGHT/AUTO/DARK TOGGLE
    Author: Patrick Österlund
    Project: Copyright Information (GitHub Pages)
    Description:
      Styling for the one‑page copyright & licensing portal.
      Includes Midnight UI theme, GitHub‑style chrome,
      tabbed content, form styling, responsive layout,
-     and full light/dark theme toggle support.
+     and full 3‑state light/auto/dark theme toggle.
    Last Updated: 2026-06-03
    ========================================================= */
 
@@ -48,84 +48,6 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.icon-sun,
-.icon-moon {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-/* =========================================================
-   THEME TOGGLE — SLIDER + SUN/MOON MORPH
-   ========================================================= */
-
-.theme-toggle {
-  float: right;
-  cursor: pointer;
-  width: 48px;
-  height: 26px;
-  position: relative;
-}
-
-.toggle-track {
-  width: 100%;
-  height: 100%;
-  background: var(--panel-border);
-  border-radius: 999px;
-  position: relative;
-  transition: background 0.3s;
-}
-
-.toggle-thumb {
-  width: 22px;
-  height: 22px;
-  background: var(--text);
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: left 0.3s ease, background 0.3s ease;
-  overflow: hidden;
-}
-
-[data-theme="dark"] .toggle-thumb {
-  left: 24px;
-}
-
-/* Sun/Moon icons */
-.toggle-thumb svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--bg);
-  position: absolute;
-  transition: opacity 0.3s ease, transform 0.3s ease, fill 0.3s ease;
-}
-
-/* Light mode: show sun */
-.icon-sun {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.icon-moon {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-/* Dark mode: show moon */
-[data-theme="dark"] .icon-sun {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-[data-theme="dark"] .icon-moon {
-  opacity: 1;
-  transform: scale(1);
-}
 
 /* =========================================================
    GLOBAL STYLES
@@ -183,6 +105,7 @@ body::after {
   position: relative;
   top: 0;
   z-index: 2;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -194,21 +117,9 @@ body::after {
   height: 22px;
 }
 
-/* Theme toggle button */
-.theme-toggle {
-  float: right;
-  background: transparent;
-  border: 1px solid var(--header-footer-border);
-  color: var(--text);
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background 0.3s, color 0.3s;
-}
-
-.theme-toggle:hover {
-  background: var(--panel-border);
+.header-title {
+  flex: 1;
+  padding-left: 0.5rem;
 }
 
 /* Footer bar */
@@ -316,10 +227,6 @@ body::after {
   transform: translateY(0);
 }
 
-.toggle-thumb svg {
-  transition: opacity 0.3s ease, transform 0.3s ease, fill 0.3s ease;
-}
-
 
 /* =========================================================
    FORMS & MESSAGES
@@ -403,6 +310,111 @@ button:hover {
 
 .qr img:hover {
   box-shadow: 0 0 18px rgba(88, 166, 255, 0.6);
+}
+
+
+/* =========================================================
+   THEME TOGGLE — 3-STATE SLIDER (LIGHT / AUTO / DARK)
+   ========================================================= */
+
+.theme-toggle {
+  cursor: pointer;
+  width: 72px;
+  height: 26px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.toggle-track {
+  width: 100%;
+  height: 100%;
+  background: var(--panel-border);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* subtle markers at 1/3 and 2/3 */
+.toggle-track::before,
+.toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 2px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%);
+}
+
+.toggle-track::before {
+  left: 33%;
+}
+
+.toggle-track::after {
+  left: 66%;
+}
+
+.toggle-thumb {
+  width: 22px;
+  height: 22px;
+  background: var(--text);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+
+/* thumb positions for 3 modes */
+:root[data-theme-mode="light"] .toggle-thumb {
+  left: 2px;
+}
+
+:root[data-theme-mode="auto"] .toggle-thumb {
+  left: calc(50% - 11px);
+}
+
+:root[data-theme-mode="dark"] .toggle-thumb {
+  left: calc(100% - 24px);
+}
+
+/* Icons inside thumb */
+.toggle-thumb svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--bg);
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.25s ease, fill 0.25s ease;
+}
+
+/* default: auto (for safety) */
+.icon-sun,
+.icon-auto,
+.icon-moon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Light mode: show sun */
+:root[data-theme-mode="light"] .icon-sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Auto mode: show balance icon */
+:root[data-theme-mode="auto"] .icon-auto {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dark mode: show moon */
+:root[data-theme-mode="dark"] .icon-moon {
+  opacity: 1;
+  transform: scale(1);
 }
 
 

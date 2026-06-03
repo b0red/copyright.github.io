@@ -71,14 +71,13 @@ handleForm("form-sv", "success-sv", "error-sv");
 
 
 /* =========================================================
-   5) Theme Toggle + System Auto Mode + Fade Transition
-      + Sliding Switch + Sun/Moon Morph Animation
+   5) Theme Toggle — 3-State (Light / Auto / Dark)
+      + System Auto Mode + Fade Transition
    ========================================================= */
 
 (function() {
   const root = document.documentElement;
   const toggle = document.getElementById("themeToggle");
-
   if (!toggle) return;
 
   /* Smooth fade transition */
@@ -90,43 +89,62 @@ handleForm("form-sv", "success-sv", "error-sv");
   /* Detect system preference */
   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-  /* Apply theme */
-  function setTheme(mode, save = true) {
-    applyFade();
-
-    if (mode === "dark") {
+  function applySystemTheme() {
+    if (systemPrefersDark.matches) {
       root.setAttribute("data-theme", "dark");
     } else {
       root.removeAttribute("data-theme");
     }
+  }
+
+  /* Apply theme mode: "light" | "dark" | "auto" */
+  function setThemeMode(mode, save = true) {
+    applyFade();
+
+    if (mode === "light") {
+      root.dataset.themeMode = "light";
+      root.removeAttribute("data-theme");
+    } else if (mode === "dark") {
+      root.dataset.themeMode = "dark";
+      root.setAttribute("data-theme", "dark");
+    } else {
+      // auto
+      root.dataset.themeMode = "auto";
+      applySystemTheme();
+    }
 
     if (save) {
-      localStorage.setItem("theme", mode);
+      if (mode === "auto") {
+        localStorage.removeItem("themeMode");
+      } else {
+        localStorage.setItem("themeMode", mode);
+      }
     }
   }
 
-  /* Load saved theme or fall back to system */
-  const saved = localStorage.getItem("theme");
-
-  if (saved === "dark") {
-    setTheme("dark", false);
-  } else if (saved === "light") {
-    setTheme("light", false);
+  /* Load saved mode or default to auto */
+  const savedMode = localStorage.getItem("themeMode");
+  if (savedMode === "light" || savedMode === "dark") {
+    setThemeMode(savedMode, false);
   } else {
-    // No saved preference → follow system
-    setTheme(systemPrefersDark.matches ? "dark" : "light", false);
+    setThemeMode("auto", false);
   }
 
-  /* React to system changes live */
-  systemPrefersDark.addEventListener("change", (e) => {
-    if (!localStorage.getItem("theme")) {
-      setTheme(e.matches ? "dark" : "light", false);
+  /* React to system changes when in auto mode */
+  systemPrefersDark.addEventListener("change", () => {
+    if (root.dataset.themeMode === "auto") {
+      applySystemTheme();
     }
   });
 
-  /* Manual toggle */
+  /* Cycle through modes: light → auto → dark → light */
   toggle.addEventListener("click", () => {
-    const isDark = root.getAttribute("data-theme") === "dark";
-    setTheme(isDark ? "light" : "dark");
+    const current = root.dataset.themeMode || "auto";
+    let next;
+    if (current === "light") next = "auto";
+    else if (current === "auto") next = "dark";
+    else next = "light";
+
+    setThemeMode(next);
   });
 })();
