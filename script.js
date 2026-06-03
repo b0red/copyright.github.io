@@ -86,7 +86,7 @@ handleForm("form-sv", "success-sv", "error-sv");
   const modeLabels = { light: "Theme: Light", auto: "Theme: Automatic", dark: "Theme: Dark" };
 
   function updateToggleTitle(mode) {
-    toggle.title = modeLabels[mode] || "Theme: Automatic";
+    toggle.setAttribute("aria-label", modeLabels[mode] || "Theme: Automatic");
   }
 
   function updateMetaThemeColor() {
