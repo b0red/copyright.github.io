@@ -4,15 +4,37 @@
   <meta charset="UTF-8">
   <title>404 – Page Not Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="site.webmanifest">
+
+  <script>
+    (function() {
+      var m = localStorage.getItem("themeMode");
+      if (m === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      } else if (m !== "light") {
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+          document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0d1117">
+
   <style>
     .not-found-container {
       max-width: 700px;
       margin: 5rem auto;
       padding: 2rem;
-      background: rgba(13, 17, 23, 0.65);
-      border: 1px solid #30363d;
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
       border-radius: 12px;
       text-align: center;
       backdrop-filter: blur(12px);
@@ -21,14 +43,14 @@
     .not-found-container h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      color: #58a6ff;
+      color: var(--link);
     }
     .not-found-container p {
       font-size: 1.2rem;
-      color: #c9d1d9;
+      color: var(--text);
     }
     .not-found-container a {
-      color: #58a6ff;
+      color: var(--link);
       text-decoration: none;
       font-weight: bold;
     }
@@ -40,14 +62,14 @@
 <body>
 
   <div class="github-bar">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub logo" title="Hosted on GitHub Pages">
     404 – Not Found
   </div>
 
   <div class="not-found-container">
     <h1>404</h1>
-    <p>The page you’re looking for doesn’t exist.</p>
-    <p><a href="index.html">Return to the homepage</a></p>
+    <p>The page you're looking for doesn't exist.</p>
+    <p><a href="/">Return to the homepage</a></p>
   </div>
 
   <div class="footer-bar">

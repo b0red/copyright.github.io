@@ -76,9 +76,9 @@ Includes:
 
 - Sliding 3‑position thumb  
 - Morphing icons (sun → balance → moon)  
-- Smooth fade transitions  
 - LocalStorage persistence  
 - Live reaction to OS theme changes  
+- Flash‑free load via inline head script  
 
 ---
 
@@ -104,7 +104,7 @@ The design includes:
   - AJAX form submission  
   - 3‑state theme system  
 - **Hosting**: GitHub Pages  
-- **Assets**: QR code, favicon set, optional iOS splash screens  
+- **Assets**: QR code, favicon set  
 
 No frameworks, no dependencies — everything is pure HTML/CSS/JS.
 
@@ -141,6 +141,19 @@ This page does not constitute legal advice.
 
 ## 🕒 Version History
 
+### **v1.4 — 2026‑06‑03**
+- Fixed theme FOUC via inline anti‑flash script in `<head>`  
+- Removed dead `applyFade` / `.theme-fade` mechanism  
+- Dynamic `meta[name="theme-color"]` update on theme change  
+- CSS tooltip on theme toggle (Light / Automatic / Dark)  
+- Title attributes on all images  
+- Fixed `.tab:hover` overriding active tab styling  
+- Sticky header bar  
+- Fixed 404 page: theme support, favicons, CSS variables  
+- Removed non‑existent iOS splash screen references  
+- Cleaned up `_config.yml` (removed unused remote theme)  
+- Fixed `site.webmanifest`: correct `start_url`, `scope`, and favicon MIME type  
+
 ### **v1.3 — 2026‑06‑03**
 - Added 3‑state theme toggle (Light / Auto / Dark)  
 - Added morphing icons (sun → balance → moon)  
@@ -151,8 +164,7 @@ This page does not constitute legal advice.
 ### **v1.2 — 2026‑06‑03**
 - Added light/dark theme toggle  
 - Added system auto mode  
-- Added fade transitions  
-- Added iOS splash screens  
+- Added iOS splash screens *(removed in v1.4 — files never existed)*  
 
 ### **v1.1 — 2026‑06‑02**
 - Added QR code section  
