@@ -43,11 +43,6 @@
   --error: #da3633;
 }
 
-/* Fade transition for theme switching */
-.theme-fade {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 
 /* =========================================================
    GLOBAL STYLES
@@ -102,7 +97,7 @@ body::after {
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.4);
   backdrop-filter: blur(8px);
-  position: relative;
+  position: sticky;
   top: 0;
   z-index: 2;
 
@@ -196,6 +191,7 @@ body::after {
   background: transparent;
   transition: background 0.3s, box-shadow 0.3s;
   color: var(--text);
+  cursor: pointer;
 }
 
 .tab.active {
@@ -204,7 +200,7 @@ body::after {
   color: white;
 }
 
-.tab:hover {
+.tab:hover:not(.active) {
   background: var(--panel-border);
   box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
 }

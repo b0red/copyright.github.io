@@ -72,7 +72,7 @@ handleForm("form-sv", "success-sv", "error-sv");
 
 /* =========================================================
    5) Theme Toggle — 3-State (Light / Auto / Dark)
-      + System Auto Mode + Fade Transition
+      + System Auto Mode
    ========================================================= */
 
 (function() {
@@ -80,14 +80,14 @@ handleForm("form-sv", "success-sv", "error-sv");
   const toggle = document.getElementById("themeToggle");
   if (!toggle) return;
 
-  /* Smooth fade transition */
-  const applyFade = () => {
-    root.classList.add("theme-fade");
-    setTimeout(() => root.classList.remove("theme-fade"), 300);
-  };
-
-  /* Detect system preference */
+  const metaThemeColor = document.querySelector('meta[name="theme-color"]');
   const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function updateMetaThemeColor() {
+    if (!metaThemeColor) return;
+    const isDark = root.getAttribute("data-theme") === "dark";
+    metaThemeColor.setAttribute("content", isDark ? "#0d1117" : "#f5f5f5");
+  }
 
   function applySystemTheme() {
     if (systemPrefersDark.matches) {
@@ -95,12 +95,11 @@ handleForm("form-sv", "success-sv", "error-sv");
     } else {
       root.removeAttribute("data-theme");
     }
+    updateMetaThemeColor();
   }
 
   /* Apply theme mode: "light" | "dark" | "auto" */
   function setThemeMode(mode, save = true) {
-    applyFade();
-
     if (mode === "light") {
       root.dataset.themeMode = "light";
       root.removeAttribute("data-theme");
@@ -113,6 +112,8 @@ handleForm("form-sv", "success-sv", "error-sv");
       applySystemTheme();
     }
 
+    updateMetaThemeColor();
+
     if (save) {
       if (mode === "auto") {
         localStorage.removeItem("themeMode");
@@ -122,7 +123,7 @@ handleForm("form-sv", "success-sv", "error-sv");
     }
   }
 
-  /* Load saved mode or default to auto */
+  /* Load saved mode or default to auto — sets data-theme-mode for CSS toggle */
   const savedMode = localStorage.getItem("themeMode");
   if (savedMode === "light" || savedMode === "dark") {
     setThemeMode(savedMode, false);
