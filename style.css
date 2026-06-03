@@ -176,6 +176,10 @@ body::after {
   position: relative;
   top: 0;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .github-bar img {
