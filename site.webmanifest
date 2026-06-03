@@ -1,0 +1,30 @@
+{
+  "name": "Patrick Österlund – Copyright",
+  "short_name": "Copyright",
+  "description": "Official copyright reference for Patrick Österlund’s images.",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+        "src":"/android-chrome-192x192.png",
+        "sizes":"192x192",
+        "type":"image/png"
+    },
+    {
+        "src":"/android-chrome-512x512.png",
+        "sizes":"512x512",
+        "type":"image/png"}
+    ]
+}
+
+
+
