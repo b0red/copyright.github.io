@@ -114,12 +114,45 @@ No frameworks, no dependencies — everything is pure HTML/CSS/JS.
 
 This site is designed for **GitHub Pages**.
 
+### Quick Start
+
 1. Clone or fork the repository  
 2. Ensure `index.html`, `style.css`, and `script.js` are in the root  
-3. Enable GitHub Pages in repository settings  
-4. Set branch to `main` (or `master`)  
-5. Page will be available at:  
-   `https://<username>.github.io/<repository>/`
+3. Push to GitHub  
+4. Enable GitHub Pages in repository settings:
+   - Go to **Settings** → **Pages**  
+   - Source: Deploy from branch  
+   - Branch: `main` (or `master`), root folder  
+
+### Deployment URLs
+
+**Option 1: User Pages (Recommended)**  
+Rename repo to `b0red.github.io` (or `<username>.github.io`)  
+Page will be available at: `https://b0red.github.io/`
+
+**Option 2: Project Pages**  
+Keep current repo name (e.g., `copyright`)  
+Page will be available at: `https://b0red.github.io/copyright/`  
+⚠️ Note: Absolute paths in HTML/CSS/JS need adjustment for project subdirectories.
+
+---
+
+## 🌐 Browser Support
+
+- **Modern browsers**: Chrome, Firefox, Safari, Edge (2020+)  
+- **Mobile**: iOS 12+, Android 8+ (full feature support)  
+- **Features used**: CSS Grid/Flexbox, CSS variables, Fetch API, LocalStorage, matchMedia  
+- **No polyfills required** — site degrades gracefully in older browsers  
+
+---
+
+## 🔒 Security & Privacy
+
+- **Static site**: No server-side logic, no database  
+- **Form submission**: Uses [Formspree](https://formspree.io) (third-party, encrypted)  
+- **Email obfuscation**: Triple-layer Base64 encoding to reduce spam crawlers  
+- **Theme preference**: Stored in browser's `localStorage` only (no tracking)  
+- **No analytics, no tracking, no cookies** — this is a pure copyright reference page  
 
 ---
 
