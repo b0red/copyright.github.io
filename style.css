@@ -137,11 +137,21 @@ body::after {
   margin-top: 3rem;
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
 .social-links {
   display: flex;
-  justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .social-links a {
