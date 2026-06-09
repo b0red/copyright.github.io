@@ -123,9 +123,9 @@ body::after {
   border-top: 1px solid var(--header-footer-border);
   padding: 1rem 1.5rem;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   color: var(--text);
-  margin-top: 3rem;
+  margin-top: 2rem;
   backdrop-filter: blur(8px);
   box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
   position: relative;
@@ -228,7 +228,16 @@ body::after {
    FORMS & MESSAGES
    ========================================================= */
 
-input, textarea, button {
+input:not([type="hidden"]), 
+textarea, 
+button {
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+input:not([type="hidden"]), 
+textarea {
   width: 100%;
   background: var(--bg);
   color: var(--text);
@@ -236,7 +245,6 @@ input, textarea, button {
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0.5rem;
-  transition: background 0.3s, color 0.3s;
 }
 
 button {
@@ -245,6 +253,8 @@ button {
   cursor: pointer;
   font-weight: bold;
   color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
 }
 
 button:hover {
@@ -306,6 +316,89 @@ button:hover {
 
 .qr img:hover {
   box-shadow: 0 0 18px rgba(88, 166, 255, 0.6);
+}
+
+/* =========================================================
+   FORM PLATE WITH NEON GLOW
+   ========================================================= */
+
+.form-plate {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.form-plate:hover {
+  box-shadow: 0 0 30px 2px rgba(88, 166, 255, 0.4),
+              0 0 50px 4px rgba(88, 166, 255, 0.2);
+  border-color: rgba(88, 166, 255, 0.5);
+}
+
+.form-plate.focused {
+  box-shadow: 0 0 30px 2px rgba(88, 166, 255, 0.5),
+              0 0 50px 5px rgba(88, 166, 255, 0.3);
+  border-color: rgba(88, 166, 255, 0.6);
+}
+
+/* Improve form input styling inside the plate */
+.form-plate input:not([type="hidden"]),
+.form-plate textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-plate input:not([type="hidden"])::placeholder,
+.form-plate textarea::placeholder {
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.form-plate input:not([type="hidden"]):focus,
+.form-plate textarea:focus {
+  outline: none;
+  border-color: rgba(88, 166, 255, 0.7);
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+}
+
+.form-plate button {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background: var(--success);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-plate button:hover {
+  background: #2ea043;
+  box-shadow: 0 0 12px rgba(42, 160, 67, 0.4);
+}
+
+.form-plate button:active {
+  transform: scale(0.98);
+}
+
+.form-plate .success,
+.form-plate .error {
+  margin: 1rem 0 0 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
 

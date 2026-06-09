@@ -71,6 +71,27 @@ handleForm("form-sv", "success-sv", "error-sv");
 
 
 /* =========================================================
+   4.5) Form plate input enhancement
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const formInputs = document.querySelectorAll(".form-plate input:not([type='hidden']), .form-plate textarea");
+  
+  formInputs.forEach(input => {
+    // Add focus/blur classes for enhanced styling if needed
+    input.addEventListener("focus", () => {
+      input.closest(".form-plate")?.classList.add("focused");
+    });
+    
+    input.addEventListener("blur", () => {
+      if (!input.closest(".form-plate").querySelector("input:focus, textarea:focus")) {
+        input.closest(".form-plate")?.classList.remove("focused");
+      }
+    });
+  });
+});
+
+
+/* =========================================================
    5) Theme Toggle — 3-State (Light / Auto / Dark)
       + System Auto Mode
    ========================================================= */

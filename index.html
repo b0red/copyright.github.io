@@ -93,24 +93,21 @@
       <!-- Contact + QR side-by-side -->
       <div class="contact-section">
         <div class="contact-form">
-          <h3>Kontakt / Licensförfrågan</h3>
-          <form id="form-sv" action="https://formspree.io/f/mlgkrgpp" method="POST">
-            <input type="text" name="_gotcha" style="display:none">
-            <input type="hidden" name="source" value="copyright-page-sv">
+          <div class="form-plate">
+            <h3>Kontakt / Licensförfrågan</h3>
+            <form id="form-sv" action="https://formspree.io/f/mlgkrgpp" method="POST">
+              <input type="text" name="_gotcha" style="display:none">
+              <input type="hidden" name="source" value="copyright-page-sv">
 
-            <label>Din e‑postadress:<br>
-              <input type="email" name="email" required>
-            </label><br><br>
+              <input type="email" name="email" placeholder="Din e‑postadress" required>
+              <textarea name="message" rows="6" placeholder="Ditt meddelande" required></textarea>
 
-            <label>Ditt meddelande:<br>
-              <textarea name="message" rows="6" required></textarea>
-            </label><br><br>
+              <button type="submit">Skicka</button>
 
-            <button type="submit">Skicka</button>
-
-            <p id="success-sv" class="hidden success">Meddelandet skickades!</p>
-            <p id="error-sv" class="hidden error">Något gick fel. Försök igen.</p>
-          </form>
+              <p id="success-sv" class="hidden success">Meddelandet skickades!</p>
+              <p id="error-sv" class="hidden error">Något gick fel. Försök igen.</p>
+            </form>
+          </div>
         </div>
 
         <div class="qr">
@@ -143,24 +140,21 @@
       <!-- Contact + QR side-by-side -->
       <div class="contact-section">
         <div class="contact-form">
-          <h3>Contact / License Request</h3>
-          <form id="form-en" action="https://formspree.io/f/mlgkrgpp" method="POST">
-            <input type="text" name="_gotcha" style="display:none">
-            <input type="hidden" name="source" value="copyright-page-en">
+          <div class="form-plate">
+            <h3>Contact / License Request</h3>
+            <form id="form-en" action="https://formspree.io/f/mlgkrgpp" method="POST">
+              <input type="text" name="_gotcha" style="display:none">
+              <input type="hidden" name="source" value="copyright-page-en">
 
-            <label>Your email:<br>
-              <input type="email" name="email" required>
-            </label><br><br>
+              <input type="email" name="email" placeholder="Your email" required>
+              <textarea name="message" rows="6" placeholder="Your message" required></textarea>
 
-            <label>Your message:<br>
-              <textarea name="message" rows="6" required></textarea>
-            </label><br><br>
+              <button type="submit">Send</button>
 
-            <button type="submit">Send</button>
-
-            <p id="success-en" class="hidden success">Message sent successfully!</p>
-            <p id="error-en" class="hidden error">Something went wrong. Please try again.</p>
-          </form>
+              <p id="success-en" class="hidden success">Message sent successfully!</p>
+              <p id="error-en" class="hidden error">Something went wrong. Please try again.</p>
+            </form>
+          </div>
         </div>
 
         <div class="qr">
@@ -169,8 +163,8 @@
         </div>
       </div>
 
-      <!-- <h3>📧 Email (Obfuscated)</h3>
-      <p id="email"></p> -->
+      <h3>📧 Email (Obfuscated)</h3>
+      <p id="email"></p>
     </div>
 
     <!-- Footer bar -->
